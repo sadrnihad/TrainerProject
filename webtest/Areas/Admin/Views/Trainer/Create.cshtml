@@ -1,0 +1,30 @@
+﻿@model CreateTrainerVm
+
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name"> Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Enter Name">
+        <span asp-validation-for="Name"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="SpecialityId"> Name</label>
+        <select class="form-control" asp-for="SpecialityId" asp-items="@(new SelectList(Model.Specialities, "Id", "Name"))">
+            <option value="">select here</option>
+        </select>
+        <span asp-validation-for="SpecialityId"></span>
+    </div>
+
+    
+
+    <div class="form-group">
+        <label asp-for="Image"> Image</label>
+        <input asp-for="Image" class="form-control">
+        <span asp-validation-for="Image"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" asp-action="Create">Submit</button>
+    <button class="btn btn-primary" asp-action="Index">Cancel</button>
+</form>
